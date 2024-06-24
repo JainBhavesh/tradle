@@ -28,6 +28,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "owner": "prajapatibiren"
+    "owner": "birenp",
+    "extra": {
+      "eas": {
+        "projectId": "2fc6f300-3a74-4232-acd4-0538a43ad182"
+      }
+    }
   }
 }
