@@ -72,7 +72,7 @@ const useTrade = () => {
         {
             id: 12,
             name: 'My Account',
-            img: Images.STATEMENT
+            img: Images.HI
         },
     ];
     const BUYER_DATA: ItemData[] = [
@@ -104,12 +104,12 @@ const useTrade = () => {
         {
             id: 6,
             name: 'My Account',
-            img: Images.STATEMENT
+            img: Images.HI
         },
         {
             id: 7,
-            name: 'Escrow',
-            img: Images.NEGOTIATION
+            name: 'Revolut Escrow',
+            img: Images.R
         },
       
     ];

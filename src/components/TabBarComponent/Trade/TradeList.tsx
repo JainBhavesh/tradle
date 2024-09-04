@@ -13,7 +13,7 @@ import { Text } from '../../../../blueprints/Text/Text';
 
 interface ExtraHeaderProps {
   item?: ItemData;
-  onPress?: () => void;
+  onPress?: any;
   backgroundColor?: string;
   textColor?: string;
 }
@@ -33,7 +33,12 @@ export const TradeList = React.memo((props: ExtraHeaderProps) => {
       <View style={styles.imgContainer}>
         <Image source={item?.img} resizeMode="contain" style={styles.images} />
       </View>
-      <Text preset="h4" style={{ color: textColor, textAlign: 'center' }}>
+      <Text
+        preset="h4"
+        style={{
+          color: item?.name == 'Animal Feed' ? 'blue' : textColor,
+          textAlign: 'center',
+        }}>
         {item?.name}
       </Text>
     </TouchableOpacity>

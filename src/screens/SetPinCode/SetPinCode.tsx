@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { BaseLayout } from '@src/components';
 import { useAppContext } from '@src/context';
 import { Text } from '../../../blueprints/Text/Text';
 import { setPinCodeStyles } from './SetPinCode.style';
 import { Button } from '../../../blueprints/Button/Button';
 import { TouchableOpacity, View } from 'react-native';
+import { Screen } from '../../navigation/appNavigation.type';
 
 const SetPinCode = ({ route }: any) => {
   const { roll } = route.params;
+  const [isNavigating, setIsNavigating] = useState(false);
   const [pin, setPin] = useState(['', '', '', '']);
   const { color, navigation } = useAppContext();
   const styles = setPinCodeStyles(color);
@@ -36,12 +38,31 @@ const SetPinCode = ({ route }: any) => {
       return updatedPin;
     });
   };
-  const goToNext = () => {
-    console.log('goToNext=');
-
-    navigation.navigate('SET_PIN_ACCEPT', { roll: roll });
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
   };
-
+  const handlePress = () => {
+    if (!isNavigating) {
+      setIsNavigating(true);
+      goToNext();
+    }
+  };
+  const goToNext = useCallback(
+    debounce(() => {
+      console.log('goToNext=');
+      navigation.push(Screen.SET_PIN_ACCEPT, { roll: roll });
+      setIsNavigating(false);
+    }, 300),
+    []
+  );
   return (
     <BaseLayout style={styles.main}>
       <Text preset="h1" style={styles.title}>
@@ -85,7 +106,7 @@ const SetPinCode = ({ route }: any) => {
       </View>
       <Button
         onPress={() => {
-          goToNext();
+          handlePress();
         }}
         title={'Next'}
         titleStyle={{ color: 'white' }}

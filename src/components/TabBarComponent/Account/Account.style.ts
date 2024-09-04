@@ -29,8 +29,7 @@ export const accountProgessStyles = ({ textColor }: Palette) =>
       marginTop:scaleHeight(17),
     },
     separator:{
-      borderColor:'grey',
-      borderWidth:0.3,
+      height:0.5
     }
 
   });

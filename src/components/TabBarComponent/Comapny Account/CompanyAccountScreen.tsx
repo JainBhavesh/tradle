@@ -6,7 +6,7 @@ import { Text } from '../../../../blueprints/Text/Text';
 import { scaleWidth } from '@src/utils';
 import { useAppContext } from '@src/context';
 
-const CompanyAccount = ({ getValue, statustatus }) => {
+const CompanyAccount = ({ getValue, status }: any) => {
   const [selectedId, setSelectedId] = useState<number>();
   const { DATA, styles } = useChain();
   const [isActive, setIsActive] = useState(false);

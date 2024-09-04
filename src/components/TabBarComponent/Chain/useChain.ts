@@ -27,7 +27,7 @@ const useChain = () => {
         {
             id: 3,
             name: 'My Account',
-            img: Images.STATEMENT
+            img: Images.HI
         },
         {
             id: 4,

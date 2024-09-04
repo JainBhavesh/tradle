@@ -19,9 +19,8 @@ enum EResult {
   SUCCESS = 'SUCCESS',
 }
 
-const Authenticate = ({route}:any) => {
-  const {roll}=route.params;
-    console.log("rollis --->",roll);
+const Authenticate = ({ route }: any) => {
+  const { roll } = route.params;
   const { color, navigation } = useAppContext();
   const styles = authenticateStyles(color);
   const [facialRecognitionAvailable, setFacialRecognitionAvailable] =
@@ -54,7 +53,7 @@ const Authenticate = ({route}:any) => {
     }
 
     setLoading(true);
-    navigation.navigate('SET_PIN_CODE',{roll:roll});
+    navigation.navigate('SET_PIN_CODE', { roll: roll });
     try {
       const results = await LocalAuthentication.authenticateAsync();
 
@@ -120,7 +119,7 @@ const Authenticate = ({route}:any) => {
   React.useEffect(() => {
     setTimeout(() => {
       if (resultMessage === 'Successfully authenticated') {
-        navigation.navigate('SET_PIN_CODE',{roll:roll});
+        navigation.navigate('SET_PIN_CODE', { roll: roll });
       }
     }, 1000);
   }, [navigation, resultMessage]);
@@ -215,7 +214,11 @@ const Authenticate = ({route}:any) => {
 
   return (
     <BaseLayout style={styles.main}>
-      <Text preset="h1" style={styles.title}>{`To Authenticate Scan Your \n Eye Or Fingerprint`}</Text>
+      <Text
+        preset="h1"
+        style={
+          styles.title
+        }>{`To Authenticate Scan Your \n Eye Or Fingerprint`}</Text>
       <Image
         source={Images.FINGER_PRINT}
         style={styles.fingerprint}

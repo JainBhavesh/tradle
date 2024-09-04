@@ -15,18 +15,18 @@ export const platformScreenStyles = ({ textColor,backgroundColor,secondaryColor 
     },
     imageStyle: {
       height: scaleHeight(100),
-      width: scaleWidth(100),
+      width: scaleWidth(150),
       // borderRadius:scaledSize(100)
     },
     desc: {
-      fontSize: scaledSize(18),
+      fontSize: scaledSize(20),
       color: color.theme5.primaryColor,
       marginBottom: scaleHeight(60),
       textAlign: 'center',
     },
     desc2: {
-      fontSize: scaledSize(18),
-      color: 'black',
+      fontSize: scaledSize(23),
+      color: color.theme2.primaryColor,
       marginBottom: scaleHeight(60),
       textAlign: 'center',
     },
@@ -39,7 +39,7 @@ export const platformScreenStyles = ({ textColor,backgroundColor,secondaryColor 
       height: scaleHeight(50),
       width: scaleWidth(50),
       position: 'absolute',
-      left: scaleWidth(90),
+      left: scaleWidth(120),
       top: scaleHeight(20)
     },
   });

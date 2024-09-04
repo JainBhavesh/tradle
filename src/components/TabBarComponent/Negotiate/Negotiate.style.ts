@@ -31,21 +31,21 @@ export const negotiatioStyles = ({ textColor }: Palette) =>
     },
     recieverMessage: {
       backgroundColor: '#ebf6fa',
-      padding: 8,
+      padding: 3,
       borderRadius: 8,
       maxWidth: '70%',
       alignSelf:'flex-start',
-      marginVertical:scaleHeight(8),
+      marginVertical:scaleHeight(2),
       paddingHorizontal:scaleWidth(20),
       flexDirection:'row'
     },
     senderMessage: {
       backgroundColor: '#ebf6fa',
-      padding: 8,
+      padding: 3,
       borderRadius: 8,
       maxWidth: '70%',
       alignSelf:'flex-end',
-      marginVertical:scaleHeight(8),
+      marginVertical:scaleHeight(2),
       paddingHorizontal:scaleWidth(20),
       flexDirection:'row'
     },

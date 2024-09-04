@@ -9,7 +9,7 @@ import {
 } from '@src/utils';
 import { Fonts } from '../../../blueprints/Text/Text';
 
-export const splashStyles = ({ textColor,primaryColor }: Palette) =>
+export const splashStyles = ({ textColor,primaryColor, }: Palette) =>
     StyleSheet.create({
         main: {
             flex:1,
@@ -19,22 +19,23 @@ export const splashStyles = ({ textColor,primaryColor }: Palette) =>
             flexDirection:'row',
             alignItems:'center',
             justifyContent:'center',
-            marginTop:scaleHeight(80)
         },
         row2: {
             // flex:1,
             marginTop:scaledSize(20),
-            justifyContent:'space-around'
+            justifyContent:'space-around',
+            paddingHorizontal:scaleWidth(30),
+            // alignItems:'center'
         },
-        tradalText:{color:color.theme5.primaryColor,padding:5,textAlign:'center',fontSize:scaledSize(50)},
-        text1:{color:'black',padding:5,textAlign:'center',fontSize:scaledSize(40)},
+        tradalText:{color:"#000080",textAlign:'center',fontSize:scaledSize(50),marginTop:-10},
+        text1:{color:color.theme5.primaryColor,textAlign:'center',marginTop:-10},
         text2:{color:"#2596be",padding:5,textAlign:'center'},
         text3:{
             fontFamily:Fonts.Poppins,
-            textAlign:'center',
             color:'black',
-            fontSize:scaledSize(30),
-            marginTop:scaledSize(50),
+            marginTop:scaledSize(40),
+            fontSize:scaledSize(20),
+            textAlign:'center'
         },
         text4:{
             color:color.theme5.primaryColor,

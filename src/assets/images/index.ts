@@ -84,5 +84,30 @@ export enum Images {
   DOCS = require("./DOCS.png"),
   OPEN_PDF = require("./OPEN_PDF.pdf"),
   BACK = require("./BACK.png"),
+  GO = require("./GO.png"),
+  HI = require("./HI.png"),
+  LO = require("./LO.png"),
+  UP_PASSPORT = require("./UP_PASSPORT.png"),
+  SELLER_GIRL = require("./SELLER_GIRL.png"),
+  BUYER_BOY = require("./BUYER_BOY.png"),
+  R = require("./R.png"),
+  ANIMAL_FEED = require("./ANIMAL_FEED.png"),
+  CATTLE = require("./CATTLE.png"),
+  DAIRY = require("./DAIRY.png"),
+  DONKEY = require("./DONKEY.png"),
+  CAMEL = require("./CAMEL.png"),
+  BUFFALO = require("./BUFFALO.png"),
+  FARMING = require("./FARMING.png"),
+  FISH = require("./FISH.png"),
+  GOAT = require("./GOAT.png"),
+  PIG = require("./PIG.png"),
+  HII = require("./HII.jpg"),
+
+
+
+
+
+
+
 
 }

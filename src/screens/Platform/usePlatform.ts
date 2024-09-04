@@ -25,9 +25,9 @@ const usePlatform = () => {
     }, [navigation]);
 
     const listData: platformData[] = [
-        { img: Images.CIRCLE, desc: "Tradal GO", isCheck: false },
-        { img: Images.STATEMENT, desc: "Tradal Hi", isCheck: true },
-        { img: Images.CIRCLE2, desc: "Tradal Low", isCheck: false }
+        { img: Images.GO, desc: "Tradal GO", isCheck: false },
+        { img: Images.HI, desc: "Tradal Hi", isCheck: true },
+        { img: Images.LO, desc: "Tradal Lo", isCheck: false }
     ]
 
     return {

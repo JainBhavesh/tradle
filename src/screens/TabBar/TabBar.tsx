@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { TouchableOpacity, View, ScrollView, SafeAreaView } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { TouchableOpacity, View, ScrollView } from 'react-native';
 import { BaseLayout, Header } from '@src/components';
-import { Strings } from '@src/utils/strings';
 import { Images } from '@src/assets';
 import useTab from './useTab';
 import { color, scaleWidth } from '@src/utils';
@@ -18,6 +17,7 @@ import Account from '@src/components/TabBarComponent/Account/Account';
 import Offer from '@src/components/TabBarComponent/offer/offer';
 import DealRoomScreen from '@src/components/TabBarComponent/DealRoom/DealRoomScreen';
 import CompanyAccountScreen from '@src/components/TabBarComponent/Comapny Account/CompanyAccountScreen';
+import useStore from '@src/store/useStore';
 
 const TabBar = ({ navigation }: any) => {
   const tabContainerRef = useRef(null);
@@ -27,25 +27,29 @@ const TabBar = ({ navigation }: any) => {
   const handleTabPress = (tabName: React.SetStateAction<string>) => {
     setActiveTab(tabName);
   };
+  const { isAggreed, setAgreeToggle }: any = useStore();
 
   const renderTab = (tabName: string, index: number) => (
     <TouchableOpacity
       style={[
         styles.tab,
         {
-          width:
-            tabName == 'Atomic transaction' ||
-            tabName == 'Grain & Oilseeds' ||
-            tabName == 'Exchange' ||
-            tabName == 'Tradal Passport' ||
-            tabName == 'My Account' ||
-            tabName == 'Company Account'
-              ? scaleWidth(140)
-              : scaleWidth(95),
+          // width:
+          //   tabName == 'Tradal Commission' ||
+          //   tabName == 'Atomic transaction' ||
+          //   tabName == 'Livestock & Meat' ||
+          //   tabName == 'Exchange' ||
+          //   tabName == 'Tradal Passport' ||
+          //   tabName == 'My Account' ||
+          //   tabName == 'Company Account'
+          //     ? scaleWidth(140)
+          //     : scaleWidth(95),
           backgroundColor:
             activeTab === tabName
               ? color.theme5.primaryColor
               : color.theme5.backgroundColor,
+          width: 'auto',
+          paddingHorizontal: scaleWidth(10),
         },
       ]}
       key={index}
@@ -59,25 +63,20 @@ const TabBar = ({ navigation }: any) => {
   );
 
   const getValue = (value: any) => {
-    console.log('value', value);
-
-    if (value === 'Coal') {
+    if (value === 'Exchange') {
       setActiveTab('Exchange');
     }
     if (value == 'Trade') {
       setActiveTab('Search');
     }
-    // if (value === 'Tradal Trade') {
-    //   setActiveTab('Offer');
-    // }
     if (value == 'Agreed') {
       setActiveTab('Atomic transaction');
     }
     if (value == 'My Account') {
       setActiveTab('My Account');
     }
-    if (value == 'Grain & Oilseeds') {
-      setActiveTab('Grain & Oilseeds');
+    if (value == 'Livestock & Meat') {
+      setActiveTab('Livestock & Meat');
     }
     if (value == 'Hi Account') {
       setActiveTab('Hi Account');
@@ -102,14 +101,14 @@ const TabBar = ({ navigation }: any) => {
     switch (activeTab) {
       case 'My Account':
         return <PassportScreen status={'Seller'} />;
-      case 'Grain & Oilseeds':
+      case 'Livestock & Meat':
         return <GoldScreen getValue={getValue} status={'Seller'} />;
       case 'Tradal Passport':
         return <TradeScreen getValue={getValue} status={'Seller'} />;
       case 'Deal Room':
         return <DealRoomScreen getValue={getValue} status={'Seller'} />;
       case 'Tradal Chain':
-        return <ChainScreen />;
+        return <ChainScreen getValue={getValue} status={'Seller'} />;
       case 'Search':
         return <Search getValue={getValue} status={'Seller'} />;
       case 'Atomic transaction':
@@ -125,13 +124,21 @@ const TabBar = ({ navigation }: any) => {
       case 'Exchange':
         return <Exchange getValue={getValue} status={'Seller'} />;
       case 'Hi Account':
-        return <Account getValue={getValue} status={'Seller'} />;
+        return (
+          <Account
+            getValue={getValue}
+            status={'Seller'}
+            isCommmission={false}
+          />
+        );
+      case 'Tradal Commission':
+        return (
+          <Account getValue={getValue} status={'Seller'} isCommmission={true} />
+        );
       case 'Offer':
         return <Offer getValue={getValue} status={'Seller'} />;
       case 'Company Account':
-        return (
-          <CompanyAccountScreen getValue={getValue} statustatus={'Seller'} />
-        );
+        return <CompanyAccountScreen getValue={getValue} status={'Seller'} />;
       default:
         return null;
     }
@@ -140,8 +147,8 @@ const TabBar = ({ navigation }: any) => {
     switch (activeTab) {
       case 'My Account':
         return 'Seller Account';
-      case 'Grain & Oilseeds':
-        return 'Search Coal';
+      case 'Livestock & Meat':
+        return 'Search \nLivestock & Meat';
       case 'Tradal Passport':
         return 'Passport';
       case 'Tradal Chain':
@@ -149,24 +156,26 @@ const TabBar = ({ navigation }: any) => {
       case 'Search':
         return 'Search';
       case 'Atomic transaction':
-        return 'Atomic Transaction';
+        return 'Atomic \nTransaction';
       case 'Negotiate':
         // return isSuccess ?"Commission":"Negotiations"
         return 'Negotiations';
       case 'Exchange':
-        return 'Grain & Oilseed Exchanges';
+        return 'Livestock & Meat \nExchanges';
       case 'Hi Account':
         return 'My Account';
       case 'Company Account':
         return 'Deal Room';
       case 'Offer':
-        return 'Deal Room Offer';
+        return 'Deal Room \nOffer';
       case 'Deal Room':
-        return 'Deal Room';
+        return 'Secure \nDeal Room';
       case 'Pay Out':
         return 'Pay Out';
       case 'Pay':
         return 'Pay';
+      case 'Tradal Commission':
+        return 'Tradal \nCommission';
       default:
         return 'Header';
     }
@@ -174,11 +183,11 @@ const TabBar = ({ navigation }: any) => {
   const renderImage = () => {
     switch (activeTab) {
       case 'My Account':
-        return Images.LEFT_HEADER_IMAGE;
-      case 'Grain & Oilseeds':
+        return Images.UP_PASSPORT;
+      case 'Livestock & Meat':
         return Images.DEER;
       case 'Tradal Passport':
-        return Images.TRADAL_PASSPORT;
+        return Images.UP_PASSPORT;
       case 'Tradal Chain':
         return Images.CHAIN_LEFT;
       case 'Search':
@@ -190,7 +199,7 @@ const TabBar = ({ navigation }: any) => {
       case 'Exchange':
         return Images.LEFT2;
       case 'Hi Account':
-        return Images.STATEMENT;
+        return Images.UP_PASSPORT;
       case 'Offer':
         return Images.SECURE_DEAL;
       case 'Deal Room':
@@ -210,7 +219,8 @@ const TabBar = ({ navigation }: any) => {
         title={renderHeader()}
         renderHeader={renderHeader()}
         leftIcon={renderImage()}
-        rightIcon={Images.GIRL}
+        rightIcon={Images.SELLER_GIRL}
+        status={'Seller'}
       />
       <View>
         <ScrollView

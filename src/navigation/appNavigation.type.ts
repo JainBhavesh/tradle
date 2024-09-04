@@ -45,7 +45,7 @@ export type NavStackParams = {
   [Screen.ACCEPT_DECLINE_TERM_COND]: undefined;
   [Screen.AUTHENTICATE]: undefined;
   [Screen.SET_PIN_CODE]: undefined;
-  [Screen.SET_PIN_ACCEPT]: undefined;
+  [Screen.SET_PIN_ACCEPT]: undefined | {roll?:any};
   [Screen.HOME]: undefined;
   [Screen.SELECT_BUYER_SELLER]: undefined;
   [Screen.BUYER_HOME]: undefined;

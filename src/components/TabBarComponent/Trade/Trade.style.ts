@@ -15,7 +15,7 @@ export const tradeScreenStyles = ({ textColor }: Palette) =>
         },
         flatlistContainer: { 
             justifyContent: 'center', 
-            // alignItems: 'center' ,
+            alignItems: 'center' ,
             paddingHorizontal:scaleWidth(8),
         },
         flatlsit: {

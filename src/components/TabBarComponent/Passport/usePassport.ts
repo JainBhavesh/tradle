@@ -24,7 +24,7 @@ const usePassport = () => {
             name: 'Current Balance',
             desc: "Increase by 10% from last month",
             icon: Images.SNAK,
-            price: "£60,000,000",
+            price: "$60,000,000",
             bgColor: "#ffece6",
         },
         {
@@ -32,22 +32,34 @@ const usePassport = () => {
             name: 'Previous Balance',
             desc: "Decrease by 10% from last month",
             icon: Images.SNAK2,
-            price: "£34,000,000",
+            price: "$34,000,000",
             bgColor: "#efcdff"
         }
     ];
 
-    const accountData:AccountDataType[]=[
-        {name:"Trade Account",value:'£30,000,000'},
-        {name:"Total In",value:'1'},
-        {name:"Tranche Payments",value:'12'},
-        {name:"Extension/Rollover",value:'1'},
-    ]
+    const buyerData: AccountDataType[] = [
+        { name: 'Trade Type', value: 'Animal Feed' },
+        { name: 'Trade Size', value: '200MT' },
+        { name: 'Trade Price', value: '$160.000' },
+        { name: 'Tranches', value: '1/3' },
+        { name: 'Buyer Deposit', value: '$80,000' },
+        { name: 'Discount', value: '$4,800.00' },
+        { name: 'Total    $', value: '$164.800' },
+      ];
+      const sellerData: AccountDataType[] = [
+        { name: 'Trade Type', value: 'Animal Feed' },
+        { name: 'Trade Size', value: '200MT' },
+        { name: 'Trade Price', value: '$160000' },
+        { name: 'Tranches', value: '1/3' },
+        { name: 'Buyer Deposit', value: '$80,000' },
+        { name: 'Discount', value: '$4800' },
+        { name: 'Total    $', value: '$550,200' },
+      ];
 
     return {
         color,
         styles: passportScreenStyles(color),
-        DATA,accountData
+        DATA,buyerData,sellerData
     };
 };
 

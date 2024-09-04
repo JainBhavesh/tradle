@@ -39,16 +39,28 @@ const useAtomic = () => {
         }
     ];
 
-    const accountData:AccountDataType[]=[
-        {name:"Coal per KG",value:'£2.99'},
-        {name:"100 Million MT",value:'£299,000,000'},
-        {name:"Commission",value:'£5980000'},
-    ]
+    const buyerData:AccountDataType[]=[
+        {name:"Trade Type",value:'Animal Feed'},
+        {name:"Trade Size",value:'200MT'},
+        {name:"Trade Price",value:'$160.000'},
+        {name:"Tranches",value:'1/3'},
+        {name:"Buyer Deposit",value:'$80,000'},
+        {name:"Discount",value:'$4,800.00'},
+        {name:"Total    $",value:'$164.800'},
+    ] 
+    const sellerData:AccountDataType[]=[
+        {name:"Trade Type",value:'Animal Feed'},
+        {name:"Trade Size",value:'200MT'},
+        {name:"Trade Price",value:'$160000'},
+        {name:"Tranches",value:'1/3'},
+        {name:"Buyer Deposit",value:'$80,000'},
+        {name:"Discount",value:'$4800'},
+        {name:"Total    $",value:'$550,200'},]
 
     return {
         color,
         styles: atomicTranctionStyles(color),
-        DATA,accountData
+        DATA, buyerData,sellerData
     };
 };
 

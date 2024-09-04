@@ -66,13 +66,13 @@ const useDealRoom = () => {
         },
         {
             id: 11,
-            name: 'Trade Chain',
+            name: 'Tradal Chain',
             img: Images.CHAIN_LEFT
         },
         {
             id: 12,
             name: 'My Account',
-            img: Images.STATEMENT
+            img: Images.HI
         },
     ];
     return {

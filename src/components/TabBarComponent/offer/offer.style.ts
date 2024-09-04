@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 import {
   color,
@@ -28,7 +28,8 @@ export const offerStyles = ({ textColor }: Palette) =>
         borderColor:'#bcbcbc',
         padding:scaleHeight(15),
         borderRadius:scaledSize(10),
-        marginTop:scaleHeight(3)
+        marginTop:scaleHeight(3),
+      color:"blue"
     },
     call:{
         height:scaleHeight(55),
@@ -68,6 +69,6 @@ export const offerStyles = ({ textColor }: Palette) =>
     alignItems:'center', 
     flexWrap: 'wrap', 
     alignContent: 'stretch',
-    height:scaleHeight(300)
+    height:Platform.OS=='ios' ? scaleHeight(260): scaleHeight(300)
   }
 });

@@ -27,13 +27,14 @@ const SelectBuyerSeller = () => {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Image
           style={{
-            height: scaleHeight(170),
-            width: scaleWidth(150),
+            height: scaleHeight(180),
+            width: scaleWidth(180),
             justifyContent: 'center',
             alignSelf: 'center',
             borderRadius: moderateScale(120),
           }}
-          source={Images.BUYER}
+          resizeMode="contain"
+          source={Images.BUYER_BOY}
         />
         <Button
           onPress={() => {
@@ -49,14 +50,15 @@ const SelectBuyerSeller = () => {
 
         <Image
           style={{
-            height: scaleHeight(150),
-            width: scaleWidth(150),
+            height: scaleHeight(180),
+            width: scaleWidth(180),
             justifyContent: 'center',
             alignSelf: 'center',
             borderRadius: moderateScale(100),
             marginTop: scaledSize(20),
           }}
-          source={Images.SELLER}
+          resizeMode="contain"
+          source={Images.SELLER_GIRL}
         />
 
         <Button

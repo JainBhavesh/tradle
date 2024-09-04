@@ -17,7 +17,7 @@ export const searchStyles = ({ textColor }: Palette) =>
     flatlsit: {
       width: '100%',
     },
-    title:{textAlign:'center',marginBottom:scaleHeight(15),marginTop:scaleHeight(8),color:color.theme5.primaryColor},
+    title:{textAlign:'center',marginBottom:scaleHeight(15),color:"blue"},
     name:{
         paddingVertical:scaledSize(3),
         paddingLeft:scaledSize(10),

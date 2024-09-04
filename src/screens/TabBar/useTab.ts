@@ -6,6 +6,7 @@ import { Screen } from '../../navigation/appNavigation.type';
 
 import { Images } from '@src/assets';
 import { tabbarScreenStyles } from './Tab.style';
+import useStore from '@src/store/useStore';
 
 export type platformData = {
   desc: string;
@@ -13,6 +14,8 @@ export type platformData = {
   isCheck: boolean;
 };
 const useTab = () => {
+  const { isAggreed, setAgreeToggle }: any = useStore();
+
   const { color, navigation } = useAppContext();
 
   const handleNavigationNetwork = useCallback(() => {
@@ -23,25 +26,19 @@ const useTab = () => {
     navigation.navigate(Screen.SETTING);
   }, [navigation]);
 
-  const listData: platformData[] = [
-    { img: Images.CIRCLE, desc: 'Statement', isCheck: false },
-    { img: Images.STATEMENT, desc: 'Statement', isCheck: true },
-    { img: Images.CIRCLE2, desc: 'Statement', isCheck: false },
-  ];
-  // const tabs = ['Passport','Trade','Negotiate',  'Account', 'Atomic transaction', 'Chain',];
-  // const tabs = ['Passport','Search','P Metal Gold','Exchange','Trade','Atomic transaction','Chain',];
+
   const tabs = [
-    // 'Tradal Trade',
     'Tradal Passport',
-    "My Account",
-    "Company Account",
-    'Hi Account',
     'Search',
-    'Grain & Oilseeds',
+    'Livestock & Meat',
     'Exchange',
     'Deal Room',
     'Offer',
     'Negotiate',
+    "My Account",
+    "Company Account",
+    'Hi Account',
+    'Tradal Commission',
     'Atomic transaction',
     'Tradal Chain',
   ];
@@ -51,7 +48,6 @@ const useTab = () => {
     handleNavigationNetwork,
     handleSetting,
     styles: tabbarScreenStyles(color),
-    listData,
     tabs,
   };
 };
